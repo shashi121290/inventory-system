@@ -37,7 +37,10 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::findOrFail($id);
-        $category->update($request->all());
+        $category->update([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+        ]);
         return response()->json($category, 200);
     }
 
