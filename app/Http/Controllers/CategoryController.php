@@ -26,7 +26,6 @@ class CategoryController extends Controller
         ]);
 
         $category = Category::create($request->all());
-
         return response()->json($category, 201);
     }
 
@@ -39,15 +38,16 @@ class CategoryController extends Controller
 
         $category = Category::findOrFail($id);
         $category->update($request->all());
-
         return response()->json($category, 200);
     }
 
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
+        // Detach associated items from the category
+        $category->items()->detach();
+        // Delete the category
         $category->delete();
-
         return response()->json(['message' => 'Category deleted successfully']);
     }
 }
