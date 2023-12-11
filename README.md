@@ -1,8 +1,14 @@
 # inventory-system
-PHP 8.2 FPM
-Laravel 10.*
-MySQL 
-PHP Unit
+**#Prerequisites:**
+#PHP 8.2 FPM
+#Laravel 10.*
+#MySQL 
+#PHP Unit
+#composer
+#
+#Test Coverage:
+![image](https://github.com/shashi121290/inventory-system/assets/153260639/7e0f105d-d3cc-4957-b77d-d156e79bbd75)
+
 GET /categories: Retrieve all categories.
 GET /categories/{id}: Retrieve a specific category by ID.
 POST /categories: Create a new category.
