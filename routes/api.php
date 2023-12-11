@@ -22,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // routes/api.php
 
 Route::apiResource('items', ItemController::class);
-//Route::apiResource('categories', CategoryController::class);
+Route::apiResource('categories', CategoryController::class);
 Route::prefix('categories')->group(function () {
     Route::get('/', [CategoryController::class, 'index']);
     Route::get('/{id}', [CategoryController::class, 'show']);
