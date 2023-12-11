@@ -1,6 +1,3 @@
-#Test Coverage:
-![image](https://github.com/shashi121290/inventory-system/assets/153260639/7e0f105d-d3cc-4957-b77d-d156e79bbd75)
-
 # Inventory System
 
 ## Prerequisites:
