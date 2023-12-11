@@ -69,20 +69,20 @@ class ItemControllerTest extends BaseTestCase
                 'price',
                 'quantity',
                 'created_at',
-                'updated_at',
-                'categories' => [
-                    '*' => [
-                        'id',
-                        'name',
-                        'description',
-                        'created_at',
-                        'updated_at',
-                        'pivot'=>[
-                            'item_id',
-                            'category_id'
-                        ]
-                    ],
-                ],
+                'updated_at'
             ]);
+    }
+
+    public function testDestroy()
+    {
+        $newItem = Item::create([
+            'name' => 'Test Item',
+            'description' => 'Test Description',
+            'price' => 10.99,
+            'quantity' => 5,
+        ]);
+        $response = $this->deleteJson("/api/items/{$newItem->id}");
+        $response->assertStatus(200);
+        $this->assertDatabaseMissing('items', ['id' => $newItem->id]);
     }
 }

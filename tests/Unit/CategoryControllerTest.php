@@ -64,16 +64,11 @@ class CategoryControllerTest extends TestCase
         $this->assertDatabaseHas('categories', $updatedData);
     }
 
-    // public function test_can_delete_category()
-    // {
-    //     // Arrange
-    //     $category = Category::factory()->create();
-
-    //     // Act
-    //     $response = $this->deleteJson("/api/categories/{$category->id}");
-
-    //     // Assert
-    //     $response->assertStatus(200);
-    //     $this->assertDatabaseMissing('categories', ['id' => $category->id]);
-    // }
+    public function test_can_delete_category()
+    {
+        $category = Category::factory()->create();
+        $response = $this->deleteJson("/api/categories/{$category->id}");
+        $response->assertStatus(200);
+        $this->assertDatabaseMissing('categories', ['id' => $category->id]);
+    }
 }
