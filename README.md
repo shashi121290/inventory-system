@@ -21,33 +21,26 @@ Ensure you have the following installed:
 **###Navigate to Project Directory:**
 cd inventory-system
 
-**Install Dependencies:
-**
+**###Install Dependencies:**
 composer install
 
-**Copy Environment File:
-**
+**###Copy Environment File:**
 cp .env.example .env
 
-**Generate Application Key:
-**
+**###Generate Application Key:**
 php artisan key:generate
 
-**Configure Database:
-**
+**###Configure Database:**
     Open the .env file and set the database connection details.
     Create a new database for the project.
 
-**Run Migrations:
-**
+**###Run Migrations:**
 php artisan migrate
 
-**Seed the Database (Optional):
-**
+**###Seed the Database (Optional):**
 php artisan db:seed
 
-**Start the Development Server:
-**
+**###Start the Development Server:**
 php artisan serve
 
 Access the Application:
@@ -64,13 +57,19 @@ php artisan test
 
 ## API Endpoints
 
-### Categories
+### Categories & Items
 
 - **GET /categories:** Retrieve all categories.
 - **GET /categories/{id}:** Retrieve a specific category by ID.
 - **POST /categories:** Create a new category.
 - **PUT /categories/{id}:** Update a specific category by ID.
 - **DELETE /categories/{id}:** Delete a specific category by ID.
+- **GET /items:** Retrieve all items.
+- **GET /items/{id}:** Retrieve a specific item by ID.
+- **POST /items:** Create a new item.
+- **PUT /items/{id}:** Update a specific item by ID.
+- **DELETE /items/{id}:** Delete a specific item by ID.
+
 
 #### Example Requests and Responses
 
@@ -114,14 +113,6 @@ PUT http://127.0.0.1:8000/api/categories/2
     "created_at": "2023-12-11T05:10:57.000000Z",
     "updated_at": "2023-12-11T07:19:00.000000Z"
 }
-
-**Items**
-
-GET /items: Retrieve all items.
-GET /items/{id}: Retrieve a specific item by ID.
-POST /items: Create a new item.
-PUT /items/{id}: Update a specific item by ID.
-DELETE /items/{id}: Delete a specific item by ID.
 
 Create an Item:
 POST http://127.0.0.1:8000/api/items/
