@@ -18,37 +18,37 @@ Ensure you have the following installed:
    ```bash
    git clone https://github.com/shashi121290/inventory-system.git
 
-**###Navigate to Project Directory:**
+### Navigate to Project Directory:
 cd inventory-system
 
-**###Install Dependencies:**
+### Install Dependencies:
 composer install
 
-**###Copy Environment File:**
+### Copy Environment File:
 cp .env.example .env
 
-**###Generate Application Key:**
+### Generate Application Key:
 php artisan key:generate
 
-**###Configure Database:**
+### Configure Database:
     Open the .env file and set the database connection details.
     Create a new database for the project.
 
-**###Run Migrations:**
+### Run Migrations:
 php artisan migrate
 
-**###Seed the Database (Optional):**
+### Seed the Database (Optional):
 php artisan db:seed
 
-**###Start the Development Server:**
+### Start the Development Server:
 php artisan serve
 
-Access the Application:
+### Access the Application:
 Open your web browser and go to http://127.0.0.1:8000.
 
 **Testing**
 
-To run the PHPUnit tests:
+### To run the PHPUnit tests:
 
 php artisan test
 
