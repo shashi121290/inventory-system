@@ -10,7 +10,8 @@ class ItemControllerTest extends BaseTestCase
 
     public function testIndex()
     {
-        $response = $this->get('/api/items');
+        $token = 'test-static-token';
+        $response = $this->withHeader('Authorization', 'Bearer ' . $token)->get('/api/items');
         $response->assertStatus(200)
             ->assertJsonStructure([
                 '*' => [
@@ -59,8 +60,9 @@ class ItemControllerTest extends BaseTestCase
             'quantity' => 5,
             'category_ids' => $categories->pluck('id')->toArray(),
         ];
-
-        $response = $this->post('/api/items', $data);
+        $token = 'test-static-token';
+        $response = $this->withHeader('Authorization', 'Bearer ' . $token)->post('/api/items', $data);
+       // $response = $this->post('/api/items', $data);
         $response->assertStatus(201)
             ->assertJsonStructure([
                 'id',
@@ -81,7 +83,9 @@ class ItemControllerTest extends BaseTestCase
             'price' => 10.99,
             'quantity' => 5,
         ]);
-        $response = $this->deleteJson("/api/items/{$newItem->id}");
+        $token = 'test-static-token';
+        $response = $this->withHeader('Authorization', 'Bearer ' . $token)->deleteJson("/api/items/{$newItem->id}");
+        //$response = $this->deleteJson("/api/items/{$newItem->id}");
         $response->assertStatus(200);
         $this->assertDatabaseMissing('items', ['id' => $newItem->id]);
     }

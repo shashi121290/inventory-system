@@ -14,7 +14,8 @@ class CategoryControllerTest extends TestCase
 
     public function test_can_list_categories()
     {
-        $response = $this->get('/api/categories');
+        $token = 'test-static-token';
+        $response = $this->withHeader('Authorization', 'Bearer ' . $token)->get('/api/categories');
         $response->assertStatus(200)
             ->assertJsonStructure([
                         '*' => [
@@ -28,7 +29,8 @@ class CategoryControllerTest extends TestCase
     public function test_can_show_category()
     {
         $category = Category::factory()->create();
-        $response = $this->getJson("/api/categories/{$category->id}");
+        $token = 'test-static-token';
+        $response = $this->withHeader('Authorization', 'Bearer ' . $token)->getJson("/api/categories/{$category->id}");
         $response->assertStatus(200)
             ->assertJson([
                 'id' => $category->id,
@@ -45,8 +47,8 @@ class CategoryControllerTest extends TestCase
             'name' => 'Test Category',
             'description' => 'This is a test category.',
         ];
-
-        $response = $this->postJson('/api/categories', $categoryData);
+        $token = 'test-static-token';
+        $response = $this->withHeader('Authorization', 'Bearer ' . $token)->postJson('/api/categories', $categoryData);
         $response->assertStatus(201);
         $this->assertDatabaseHas('categories', $categoryData);
     }
