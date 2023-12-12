@@ -3,7 +3,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Category;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Notifications\NewItemNotification;
+use App\Notifications\UpdatedItemNotification;
+use App\Notifications\DeletedItemNotification;
 
 class ItemController extends Controller
 {
@@ -39,6 +43,9 @@ class ItemController extends Controller
 
         // Attach categories to the item
         $item->categories()->attach($request->input('category_ids'));
+        $user = User::where('id', 1)->first();
+        //sending email notification on create item
+        $user->notify(new NewItemNotification($item));
         return response()->json($item, 201);
     }
 
@@ -65,6 +72,10 @@ class ItemController extends Controller
         if ($request->has('category_ids')) {
             $item->categories()->sync($request->input('category_ids'));
         }
+
+        //sending email notification on update item
+        $user = User::where('id', 1)->first(); 
+        $user->notify(new UpdatedItemNotification($item));
         return response()->json($item, 200);
     }
 
@@ -73,6 +84,10 @@ class ItemController extends Controller
         $item = Item::findOrFail($id);
         $item->categories()->detach(); // Detach categories before deleting the item
         $item->delete();
+        $user = User::where('id', 1)->first();
+
+        //sending email notification on update item
+        $user->notify(new DeletedItemNotification($item));
         return response()->json(['message' => 'Item deleted successfully']);
     }
 }
