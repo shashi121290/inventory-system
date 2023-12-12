@@ -37,7 +37,7 @@ class DeletedItemNotification extends Notification
             ->subject('Item Deleted')
             ->greeting('Hello!')
             ->line('A item has been deleted.')
-            ->action('View Item', url('/items'))
+            ->action('View Item', url('/api/items'))
             ->line('Thank you for using our application.');
     } 
 

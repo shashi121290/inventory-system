@@ -38,7 +38,7 @@ class UpdatedItemNotification extends Notification
             ->subject('Item updated')
             ->greeting('Hello!')
             ->line('A item has been updated.')
-            ->action('View Item', url('/items'))
+            ->action('View Item', url('/api/items'))
             ->line('Thank you for using our application.');
     } 
 

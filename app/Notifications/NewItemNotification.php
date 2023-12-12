@@ -36,7 +36,7 @@ class NewItemNotification extends Notification
             ->subject('New Item Created')
             ->greeting('Hello!')
             ->line('A new item has been created.')
-            ->action('View Item', url('/items'))
+            ->action('View Item', url('/api/items'))
             ->line('Thank you for using our application.');
     } 
 
