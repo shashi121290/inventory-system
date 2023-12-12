@@ -70,6 +70,13 @@ php artisan test
 - **PUT /items/{id}:** Update a specific item by ID.
 - **DELETE /items/{id}:** Delete a specific item by ID.
 
+### Email Notification:
+### Following are the events where the Email notification will send:
+### 1. Create Item
+### 2. Update Item
+### 3. Delete Item
+
+
 ### Find the Postman collection at: https://github.com/shashi121290/inventory-system/blob/master/inventory-system.postman_collection.json
 
 #### Example Requests and Responses
