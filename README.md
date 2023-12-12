@@ -72,9 +72,12 @@ php artisan test
 
 ### Email Notification:
 ### Following are the events where the Email notification will send:
-### 1. Create Item
-### 2. Update Item
-### 3. Delete Item
+# 1. Create Item:
+![Alt text](image.png)
+# 2. Update Item
+![Alt text](image-1.png)
+# 3. Delete Item
+![Alt text](image-2.png)
 
 
 ### Find the Postman collection at: https://github.com/shashi121290/inventory-system/blob/master/inventory-system.postman_collection.json
