@@ -70,6 +70,7 @@ php artisan test
 - **PUT /items/{id}:** Update a specific item by ID.
 - **DELETE /items/{id}:** Delete a specific item by ID.
 
+### Find the Postman collection at: https://github.com/shashi121290/inventory-system/blob/master/inventory-system.postman_collection.json
 
 #### Example Requests and Responses
 
